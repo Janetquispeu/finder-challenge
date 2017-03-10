@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Finder challenge</title>
+    <meta charset="utf-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Proxima+Nova" rel="stylesheet" type="text/css">
+    <link href="/vendor/pure/pure-min.css" rel="stylesheet">
+    <link href="/styles/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app pure-g">
+      <header class="pure-u-1">
+        <div class="pure-u-1-3">
+          <h1 class="logo">Finder challenge!</h1>
+        </div>
+        <div class="pure-u-13-24">
+          <form class="pure-form">
+            <input class="pure-input-rounded" type="text" id="inputSearch">
+            <button class="pure-button" type="button" id="btnSearch" disabled="true">Search</button><a href="#">Guardar búsqueda</a>
+          </form>
+        </div>
+        <div class="pure-u-1-3"></div>
+      </header>
+      <aside class="filters pure-u-1-4"> 
+        <ul>Búsquedas Guardadas
+          <li> <a href="#">Terro puro</a></li>
+          <li> <a href="#">Editar</a>
+            <p>|</p><a href="#">Eliminar</a>
+          </li>
+          <li> <a href="#">Search Drama</a></li>
+          <li> <a href="#">Comedias en Inglés</a></li>
+        </ul>
+        <ul>Categorías
+          <li><a href="#">Todos</a></li>
+          <li><a href="#">Terror</a></li>
+          <li><a href="#">Comedia</a></li>
+          <li><a href="#">Drama</a><a href="#">Comedias en Inglés</a></li>
+        </ul>
+        <ul>Idiomas
+          <li><a href="#">Todos</a></li>
+          <li><a href="#">Inglés</a></li>
+          <li><a href="#">Español</a></li>
+          <li><a href="#">Portugués</a></li>
+        </ul>
+        <ul>Publicación
+          <li><a href="#">Todos</a></li>
+          <li><a href="#">Hoy</a></li>
+          <li><a href="#">Hace una semana</a></li>
+          <li><a href="#">Hace un mes</a></li>
+          <li><a href="#">Hace un año</a></li>
+        </ul>
+        <ul>Prsentación
+          <li><a href="#">Impreso</a></li>
+          <li><a href="#">Digital</a></li>
+          <li><a href="#">Impreso y digital</a></li>
+        </ul>
+      </aside>
+      <content class="pure-u-3-4"> 
+        <div class="pure-g">
+          <div class="pure-u-1-3"> 
+            <div class="thumbnail">Devil At The Catacombs</div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <div class="thumbnail">Foreigners And Hunters </div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          </div>
+          <div class="pure-u-1-3"> 
+            <div class="thumbnail">Fish Looking At me</div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <div class="thumbnail">Zombies and Horses</div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          </div>
+          <div class="pure-u-1-3">
+            <div class="thumbnail">Zombies and Horses </div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <div class="thumbnail">Temptation Hiding From me</div>
+            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          </div>
+        </div>
+      </content>
+      <footer class="pure-u-1"></footer>
+    </div>
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/underscore/underscore-min.js"></script>
+    <script src="/scripts/global.js"></script>
+    <script src="/scripts/activeButton.js"></script>
+    <script src="/scripts/search-form.js"></script>
+    <script src="/scripts/app.js"></script>
+  </body>
+</html>

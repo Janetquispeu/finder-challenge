@@ -1,0 +1,99 @@
+doctype html
+html(lang="es")
+    head
+        title Finder challenge
+        meta(charset="utf-8")
+        meta(viewport="width=device-width, initial-scale=1.0")
+        link(href="https://fonts.googleapis.com/css?family=Proxima+Nova", rel="stylesheet", type="text/css")
+        link(href="/vendor/pure/pure-min.css", rel="stylesheet")
+        link(href="/styles/index.css", rel="stylesheet")
+
+    body
+        .app.pure-g
+            header.pure-u-1
+                .pure-u-1-3
+                    h1.logo Finder challenge!
+                .pure-u-13-24
+                    form.pure-form
+                      input(type="text" class="pure-input-rounded" id="inputSearch")
+                      button(type="button" class="pure-button" id="btnSearch" disabled="true") Search
+                      a(href="#") Guardar búsqueda
+                .pure-u-1-3
+            aside.filters.pure-u-1-4 
+              ul Búsquedas Guardadas
+                li 
+                  a(href='#') Terro puro
+                li 
+                  a(href='#') Editar
+                  p |
+                  a(href='#') Eliminar
+                li 
+                  a(href='#') Search Drama
+                li 
+                  a(href='#') Comedias en Inglés
+              ul Categorías
+                li
+                  a(href='#') Todos
+                li
+                  a(href='#') Terror
+                li
+                  a(href='#') Comedia
+                li
+                  a(href='#') Drama
+                  a(href='#') Comedias en Inglés
+              ul Idiomas
+                li
+                  a(href='#') Todos
+                li
+                  a(href='#') Inglés
+                li
+                  a(href='#') Español
+                li
+                  a(href='#') Portugués
+              ul Publicación
+                li
+                  a(href='#') Todos
+                li
+                  a(href='#') Hoy
+                li
+                  a(href='#') Hace una semana
+                li
+                  a(href='#') Hace un mes
+                li
+                  a(href='#') Hace un año
+              ul Prsentación
+                li
+                  a(href='#') Impreso
+                li
+                  a(href='#') Digital
+                li
+                  a(href='#') Impreso y digital
+            content.pure-u-3-4 
+              div.pure-g
+                div.pure-u-1-3 
+                  div.thumbnail Devil At The Catacombs
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  div.thumbnail Foreigners And Hunters 
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                div.pure-u-1-3  
+                  div.thumbnail Fish Looking At me
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  div.thumbnail Zombies and Horses
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                div.pure-u-1-3
+                  div.thumbnail Zombies and Horses 
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  div.thumbnail Temptation Hiding From me
+                  p lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+            footer.pure-u-1
+
+        //- third party libraries
+        script(src="/vendor/jquery.min.js")
+        script(src="/vendor/underscore/underscore-min.js")
+
+        //- app scripts self
+        script(src="/scripts/global.js")
+        script(src="/scripts/activeButton.js")
+        script(src="/scripts/search-form.js")
+        script(src="/scripts/app.js")
