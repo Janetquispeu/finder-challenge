@@ -5,6 +5,7 @@ html(lang="es")
         meta(charset="utf-8")
         meta(viewport="width=device-width, initial-scale=1.0")
         link(href="https://fonts.googleapis.com/css?family=Proxima+Nova", rel="stylesheet", type="text/css")
+        link(rel="stylesheet" href="/styles/awesomplete.css")
         link(href="/vendor/pure/pure-min.css", rel="stylesheet")
         link(href="/styles/index.css", rel="stylesheet")
 
@@ -14,23 +15,14 @@ html(lang="es")
                 .pure-u-1-3
                     h1.logo Finder challenge!
                 .pure-u-13-24
-                    form.pure-form
+                    section(class="pure-form" id="ajax-example")
                       input(type="text" class="pure-input-rounded" id="inputSearch")
                       button(type="button" class="pure-button" id="btnSearch" disabled="true") Search
-                      a(href="#") Guardar búsqueda
+                      a(href="#" id="link-save") Guardar búsqueda
                 .pure-u-1-3
             aside.filters.pure-u-1-4 
               ul Búsquedas Guardadas
-                li 
-                  a(href='#') Terro puro
-                li 
-                  a(href='#') Editar
-                  p |
-                  a(href='#') Eliminar
-                li 
-                  a(href='#') Search Drama
-                li 
-                  a(href='#') Comedias en Inglés
+              section.data
               ul Categorías
                 li
                   a(href='#') Todos
@@ -88,12 +80,19 @@ html(lang="es")
 
             footer.pure-u-1
 
+        script(type="text/template" id="tpl-template")        
+          li.listData
+            a(class="searchSave" href="#") <%=mivariable_label%>    
+            
         //- third party libraries
         script(src="/vendor/jquery.min.js")
+        script(src="/vendor/awesomplete.js") 
         script(src="/vendor/underscore/underscore-min.js")
 
         //- app scripts self
-        script(src="/scripts/global.js")
+        script(src="/scripts/listar.js")
         script(src="/scripts/activeButton.js")
-        script(src="/scripts/search-form.js")
+        script(src="/scripts/global.js")
+        //-script(src="/scripts/search-form.js")
         script(src="/scripts/app.js")
+        //-script(src="/scripts/probando.js")
