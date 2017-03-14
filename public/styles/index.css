@@ -11,18 +11,26 @@
   display: flex;
   font-size: 12px;
   height: 150px;
+  justify-content: center;
+  margin-bottom: 3%;
   overflow: hidden;
   padding: 4px;
   width: 150px;
 }
-.thumbnail justify-content center {
-  margin-bottom: 3%;
-}
 .pure-form {
   margin-top: 6%;
 }
-.listData {
-  padding: 5% 0;
+#btnSearch {
+  margin-right: 3%;
+}
+li {
+  list-style: none;
+}
+.divOpcion {
+  display: none;
+}
+.listData:hover .divOpcion {
+  display: block;
 }
 .search-form {
   margin-top: 30px;

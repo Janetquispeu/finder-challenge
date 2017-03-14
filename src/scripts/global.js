@@ -2,14 +2,20 @@
   constants and global functions
 */
 
-var JSON_FILE   = '/books_schema.json';
+var JSON_FILE   = '/books-schema.json';
 
-var ajax = new XMLHttpRequest();
-ajax.open("GET", "http://localhost:8089/books-schema.json", true);
-ajax.onload = function() {
-  var list = JSON.parse(ajax.responseText).data.map(function(object, index) { 
-    return object.title;
-  });
-  new Awesomplete(document.querySelector("#ajax-example input"),{ list: list });
+var loadJSON = function(url, callback){
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open("GET", url, true);
+  xobj.onreadystatechange = function(responseText){
+    if(xobj.readyState == 4 && xobj.status == "200"){
+      var content = JSON.parse(xobj.responseText);
+      callback.call(this, content);
+    }
+  };
+  xobj.send();
 };
-ajax.send();
+
+
+

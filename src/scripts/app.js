@@ -2,8 +2,9 @@
   main script for only runs every function
 */
 var btnSearch   = $("#btnSearch");
+
 //searchForm();
-//loadJSON("http://localhost:8089/books-schema.json",searchForm());
+loadJSON(JSON_FILE,searchForm);
 $(inputSearch).keydown(activeButton);
 
 
