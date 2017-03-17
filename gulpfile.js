@@ -3,6 +3,7 @@ var pug = require("gulp-pug");
 var stylus = require("gulp-stylus");
 var rupture = require("rupture");
 var browserSync = require("browser-sync");
+var typeScript = require("gulp-typescript");
 
 var pathsView = [
     "src/index.pug",
@@ -23,12 +24,12 @@ var pathsStylesToWatch = [
 ];
 
 var pathsScripts = [
-    "src/scripts/app.js",
-    "src/scripts/**/*.js"
+    "src/scripts/app.ts",
+    "src/scripts/**/*.ts"
 ];
 var pathsScriptsToWatch = [
-    "src/scripts/*.js",
-    "src/scripts/**/*.js"
+    "src/scripts/*.ts",
+    "src/scripts/**/*.ts"
 ];
 
 var pathVendor = [
@@ -68,6 +69,9 @@ gulp.task("styles", function(){
 
 var taskScriptsSelf = function(){
     return gulp.src(pathsScripts)
+        .pipe(typeScript({
+            use:[rupture()]
+        }))
         .pipe(gulp.dest("./public/scripts"));
 };
 gulp.task("scripts", function(){
