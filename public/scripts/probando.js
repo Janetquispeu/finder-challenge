@@ -1,42 +1,45 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Carro = (function () {
-    function Carro(modelo) {
-        if (modelo === void 0) { modelo = null; }
-        this.color = "Blanco";
-        this.velocidad = 0;
-        if (modelo == null) {
-            this.modelo = "BMW Generico";
-        }
-        else {
-            this.modelo = modelo;
-        }
+/// <reference path="../../vendor/awesomplete.d.ts" />
+/// <reference path="../../node_modules/@types/underscore/underscore.d.ts" />
+"use strict";
+exports.__esModule = true;
+var _ = require("underscore");
+var callingAjaxAwesomplete = (function () {
+    function callingAjaxAwesomplete() {
+        this.json_file = "/books-schema.json";
     }
-    Carro.prototype.getModelo = function () {
-        return this.modelo;
+    callingAjaxAwesomplete.prototype.searchForm = function () {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open("GET", this.json_file, true);
+        xobj.onreadystatechange = function (responseText) {
+            if (xobj.readyState == 4 && xobj.status == 200) {
+                var content = JSON.parse(xobj.responseText);
+                var list = content.data.map(function (object, index) {
+                    return object.title;
+                });
+                new Awesomplete(document.querySelector("#ajax-example input"), { list: list });
+            }
+        };
+        xobj.send();
     };
-    Carro.prototype.setModelo = function (modelo) {
-        this.modelo = modelo;
+    callingAjaxAwesomplete.prototype.callingList = function () {
+        var tplTemplate = document.getElementById("tpl-template");
+        var xobj = new XMLHttpRequest();
+        var compiled = _.template(tplTemplate.innerHTML);
+        console.log(compiled);
+        xobj.overrideMimeType("application/json");
+        xobj.open("GET", this.json_file, true);
+        xobj.onreadystatechange = function (responseText) {
+            var content = JSON.parse(xobj.responseText);
+            console.log(content.entities);
+            content.entities.forEach(function (currentValue, index) {
+                console.log(currentValue);
+                console.log(index);
+            });
+        };
     };
-    return Carro;
+    return callingAjaxAwesomplete;
 }());
-var autoUno = (function (_super) {
-    __extends(autoUno, _super);
-    function autoUno() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    autoUno.prototype.getAllData = function () {
-        return this.getModelo();
-    };
-    return autoUno;
-}(Carro));
-var auto = new autoUno("Renalt Cio");
-console.log("El auto es de modelo : " + auto.getAllData());
+var root = new callingAjaxAwesomplete;
+console.log(root.searchForm());
+console.log(root.callingList());
