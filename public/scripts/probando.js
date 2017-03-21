@@ -1,13 +1,11 @@
 /// <reference path="../../vendor/awesomplete.d.ts" />
+/// <reference path="../../typings/globals/jquery/index.d.ts" />
 /// <reference path="../../node_modules/@types/underscore/underscore.d.ts" />
-"use strict";
-exports.__esModule = true;
-var _ = require("underscore");
-var callingAjaxAwesomplete = (function () {
-    function callingAjaxAwesomplete() {
+var modalFinder = (function () {
+    function modalFinder() {
         this.json_file = "/books-schema.json";
     }
-    callingAjaxAwesomplete.prototype.searchForm = function () {
+    modalFinder.prototype.searchForm = function () {
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open("GET", this.json_file, true);
@@ -22,24 +20,36 @@ var callingAjaxAwesomplete = (function () {
         };
         xobj.send();
     };
-    callingAjaxAwesomplete.prototype.callingList = function () {
+    modalFinder.prototype.callingList = function () {
         var tplTemplate = document.getElementById("tpl-template");
-        var xobj = new XMLHttpRequest();
         var compiled = _.template(tplTemplate.innerHTML);
-        console.log(compiled);
-        xobj.overrideMimeType("application/json");
-        xobj.open("GET", this.json_file, true);
-        xobj.onreadystatechange = function (responseText) {
-            var content = JSON.parse(xobj.responseText);
-            console.log(content.entities);
-            content.entities.forEach(function (currentValue, index) {
-                console.log(currentValue);
-                console.log(index);
+        var xobj = new XMLHttpRequest();
+        $.getJSON(this.json_file, function (value) {
+            $.each(value.entities.saved, function (val, object) {
+                var htmlCompiled = compiled({
+                    mivariable_label: object.label
+                });
+                $(htmlCompiled).appendTo(".data");
             });
-        };
+        });
     };
-    return callingAjaxAwesomplete;
+    modalFinder.prototype.activeButton = function (event) {
+        var element = document.getElementById("btnSearch");
+        var inputSearch = $("#inputSearch").val();
+        var evento = window.event;
+        element.disabled = false;
+        if (inputSearch == 0) {
+            element.disabled = true;
+        }
+    };
+    modalFinder.prototype["delete"] = function () {
+        var listData = $(this).parent().parent();
+        listData.remove();
+    };
+    return modalFinder;
 }());
-var root = new callingAjaxAwesomplete;
-console.log(root.searchForm());
-console.log(root.callingList());
+var root = new modalFinder;
+root.searchForm();
+root.callingList();
+$("#inputSearch").keyup(root.activeButton);
+$(document).on("click", ".delete", root["delete"]);
